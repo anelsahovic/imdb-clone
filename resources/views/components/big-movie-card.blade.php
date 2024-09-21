@@ -5,11 +5,11 @@
     </a>
     <div class="p-5 relative">
         <div class="flex justify-between items-center">
-            <!-- Year -->
+
             <div class="text-sm text-white/90 font-semibold">
                 <p>2024</p>
             </div>
-            <!-- Rating -->
+
             <div class="text-lg font-bold text-yellow-600">
                 <i class="fa-solid fa-star"></i> 9.0
             </div>
@@ -24,7 +24,7 @@
         </div>
 
         <div class="flex justify-between items-center mt-4">
-            <!-- Tags -->
+
             <div class="flex space-x-2">
                 <x-tag>new</x-tag>
                 <x-tag>featured</x-tag>

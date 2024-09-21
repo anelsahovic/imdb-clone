@@ -6,7 +6,10 @@
             <!-- Dark Overlay -->
             <div class="absolute inset-0 bg-black opacity-50"></div>
         </div>
-        <!-- Actor's Name -->
-        <div class="relative z-10 text-white/50 text-lg font-semibold">Bruce Willis</div>
+        <!-- person info -->
+        <div class="text-center">
+            <div class="relative z-10 text-white/50 text-lg font-semibold">Bruce Willis</div>
+            <div class="relative z-10 text-white/50 text-md font-semibold">Actor</div>
+        </div>
     </div>
 </a>

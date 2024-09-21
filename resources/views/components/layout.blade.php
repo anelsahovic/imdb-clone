@@ -22,20 +22,20 @@
         <!-- Desktop Navigation Links -->
         <div class="hidden md:flex space-x-3">
             <x-navlink href="/">Home</x-navlink>
-            <x-navlink href="#">Movies</x-navlink>
-            <x-navlink href="#">Actors & Directors</x-navlink>
-            <x-navlink href="#">Reviews</x-navlink>
+            <x-navlink href="{{ route('movies.index') }}">Movies</x-navlink>
+            <x-navlink href="{{ route('persons.index') }}">Actors & Directors</x-navlink>
+            <x-navlink href="{{ route('reviews.index') }}">Reviews</x-navlink>
         </div>
 
         <!-- Desktop Login/Register -->
         <div class="hidden md:flex space-x-3">
             @auth
-                <x-navlink href="#">Log out</x-navlink>
+                <x-navlink href="{{ route('session.destroy') }}">Log out</x-navlink>
             @endauth
 
             @guest
-                <x-navlink href="#">Log in</x-navlink>
-                <x-navlink href="#">Register</x-navlink>
+                <x-navlink href="{{ route('session.index') }}">Log in</x-navlink>
+                <x-navlink href="{{ route('register.index') }}">Register</x-navlink>
             @endguest
         </div>
 
@@ -57,19 +57,19 @@
             </div>
             <div class="flex flex-col p-4 space-y-4 text-center">
                 <x-navlink href="/">Home</x-navlink>
-                <x-navlink href="#">Movies</x-navlink>
-                <x-navlink href="#">Actors & Directors</x-navlink>
-                <x-navlink href="#">Reviews</x-navlink>
+                <x-navlink href="{{ route('movies.index') }}">Movies</x-navlink>
+                <x-navlink href="{{ route('persons.index') }}">Actors & Directors</x-navlink>
+                <x-navlink href="{{ route('reviews.index') }}">Reviews</x-navlink>
             </div>
             <div class=" mt-4 space-x-3 space-y-2 p-4 border-t border-white/20">
                 @auth
-                    <x-navlink href="#">Log out</x-navlink>
+                    <x-navlink href="{{ route('session.destroy') }}">Log out</x-navlink>
                 @endauth
 
                 @guest
                     <div class="flex justify-center items-center space-x-3">
-                        <x-navlink href="#">Log in</x-navlink>
-                        <x-navlink href="#">Register</x-navlink>
+                        <x-navlink href="{{ route('session.index') }}">Log in</x-navlink>
+                        <x-navlink href="{{ route('register.index') }}">Register</x-navlink>
                     </div>
                 @endguest
             </div>

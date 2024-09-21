@@ -81,7 +81,7 @@ Route::controller(TagController::class)
 
 //REGISTER
 Route::get('/register', [RegisteredController::class, 'index'])->name('register.index');
-Route::post('/register', [RegisteredController::class, 'store'])->name('store');
+Route::post('/register', [RegisteredController::class, 'store'])->name('register.store');
 
 //LOGIN
 Route::get('/login', [SessionController::class, 'index'])->name('session.index');
