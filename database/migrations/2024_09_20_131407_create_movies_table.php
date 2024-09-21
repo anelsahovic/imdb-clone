@@ -18,8 +18,11 @@ return new class extends Migration
         Schema::create('movies', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->text('description');
             $table->integer('year_published');
             $table->decimal('rating', 2, 1)->default(0);
+            $table->string('img_url');
+            $table->boolean('featured')->default(false);
             $table->foreignId('director_id')->constrained('persons')->cascadeOnDelete();
             $table->timestamps();
         });

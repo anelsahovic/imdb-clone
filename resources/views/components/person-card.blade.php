@@ -1,0 +1,12 @@
+<a href="#" class="hover:opacity-80">
+    <div
+        class="relative w-32 h-32 sm:w-44 sm:h-44 rounded-full overflow-hidden shadow-md bg-gray-900 flex items-center justify-center">
+        <!-- Background Image -->
+        <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://via.placeholder.com/150')">
+            <!-- Dark Overlay -->
+            <div class="absolute inset-0 bg-black opacity-50"></div>
+        </div>
+        <!-- Actor's Name -->
+        <div class="relative z-10 text-white/50 text-lg font-semibold">Bruce Willis</div>
+    </div>
+</a>

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->date('birth_date');
             $table->string('country');
             $table->text('biography');
+            $table->string('img_url');
             $table->enum('role', ['Actor', 'Director']);
         });
     }
