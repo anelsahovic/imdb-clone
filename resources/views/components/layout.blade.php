@@ -30,7 +30,14 @@
         <!-- Desktop Login/Register -->
         <div class="hidden md:flex space-x-3">
             @auth
-                <x-navlink href="{{ route('session.destroy') }}">Log out</x-navlink>
+                <form action="{{ route('session.destroy') }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button
+                        class="hover:border-b-2 border-primary transition-all transition-duration:400 hover:text-white/70 cursor-pointer">Log
+                        out</button>
+                </form>
+
             @endauth
 
             @guest

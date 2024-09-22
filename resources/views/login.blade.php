@@ -11,11 +11,18 @@
             <form method="POST" action="{{ route('session.store') }}">
                 @csrf
 
+                <div class="text-center">
+                    @error('username')
+                        <p class="text-xs text-red-500 font-semibold ">{{ $message }}</p>
+                    @enderror
+                </div>
+
                 <div class="mb-4">
                     <label for="username" class="block text-white font-semibold mb-2 ml-1">Username</label>
                     <input type="username" id="username" name="username" placeholder="Enter your username"
                         class="w-full p-3 border rounded-full text-gray-700 bg-gray-50 border-gray-300 focus:outline-none focus:ring-4 focus:ring-primary transition duration-300"
-                        required>
+                        required value="{{ old('username') }}">
+
                 </div>
 
 

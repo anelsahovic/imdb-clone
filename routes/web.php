@@ -11,7 +11,7 @@ use App\Http\Controllers\RegisteredController;
 
 Route::get('/', function () {
     return view('home');
-});
+})->name('home');
 
 //MOVIES
 Route::controller(MovieController::class)
@@ -86,4 +86,5 @@ Route::post('/register', [RegisteredController::class, 'store'])->name('register
 //LOGIN
 Route::get('/login', [SessionController::class, 'index'])->name('session.index');
 Route::post('/login', [SessionController::class, 'store'])->name('session.store');
+
 Route::delete('/logout', [SessionController::class, 'destroy'])->name('session.destroy');

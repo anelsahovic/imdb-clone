@@ -4,7 +4,16 @@
 
             <div class="text-center mb-3">
                 <h2 class="text-xl sm:text-2xl font-bold text-white mb-2">Register</h2>
-                <p class="text-gray-400 sm:text-gray-600">Create a new account</p>
+
+                <p class="text-gray-400 sm:text-gray-600 mb-3">Create a new account</p>
+
+                @if ($errors->any())
+                    @foreach ($errors->all() as $error)
+                        <p class="text-red-600">{{ $error }}</p>
+                    @endforeach
+                @endif
+
+
             </div>
 
             <!-- Form -->
@@ -17,7 +26,7 @@
                         <label for="first_name" class="block text-white font-semibold mb-2 ml-1">First Name</label>
                         <input type="text" id="first_name" name="first_name" placeholder="Enter your first name"
                             class="w-full p-3 border rounded-full text-gray-700 bg-gray-50 border-gray-300 focus:outline-none focus:ring-4 focus:ring-primary transition duration-300"
-                            required>
+                            required value="{{ old('first_name') }}">
                     </div>
 
 
@@ -25,7 +34,7 @@
                         <label for="last_name" class="block text-white font-semibold mb-2 ml-1">Last Name</label>
                         <input type="text" id="last_name" name="last_name" placeholder="Enter your last name"
                             class="w-full p-3 border rounded-full text-gray-700 bg-gray-50 border-gray-300 focus:outline-none focus:ring-4 focus:ring-primary transition duration-300"
-                            required>
+                            required value="{{ old('last_name') }}">
                     </div>
                 </div>
 
@@ -34,7 +43,7 @@
                         <label for="username" class="block text-white font-semibold mb-2 ml-1">Username</label>
                         <input type="text" id="username" name="username" placeholder="Choose a username"
                             class="w-full p-3 border rounded-full text-gray-700 bg-gray-50 border-gray-300 focus:outline-none focus:ring-4 focus:ring-primary transition duration-300"
-                            required>
+                            required value="{{ old('username') }}">
                     </div>
 
 
@@ -42,7 +51,7 @@
                         <label for="email" class="block text-white font-semibold mb-2 ml-1">Email</label>
                         <input type="email" id="email" name="email" placeholder="Enter your email"
                             class="w-full p-3 border rounded-full text-gray-700 bg-gray-50 border-gray-300 focus:outline-none focus:ring-4 focus:ring-primary transition duration-300"
-                            required>
+                            required value="{{ old('email') }}">
                     </div>
                 </div>
 
@@ -53,7 +62,7 @@
                     <label for="birth_date" class="block text-white font-semibold mb-2 ml-1">Birth Date</label>
                     <input type="date" id="birth_date" name="birth_date"
                         class="w-full p-3 border rounded-full text-gray-700 bg-gray-50 border-gray-300 focus:outline-none focus:ring-4 focus:ring-primary transition duration-300"
-                        required>
+                        required value="{{ old('birth_date') }}">
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
