@@ -11,6 +11,8 @@ use App\Http\Controllers\SessionController;
 use App\Http\Controllers\RegisteredController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
+Route::view('/admin-dashboard', 'admin-dashboard')->name('admin-dashboard');
+Route::view('/user-dashboard', 'user-dashboard')->name('user-dashboard');
 //MOVIES
 Route::controller(MovieController::class)
     ->name('movies.')

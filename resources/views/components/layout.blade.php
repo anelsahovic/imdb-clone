@@ -30,14 +30,7 @@
         <!-- Desktop Login/Register -->
         <div class="hidden md:flex space-x-3">
             @auth
-                <form action="{{ route('session.destroy') }}" method="POST">
-                    @csrf
-                    @method('DELETE')
-                    <button
-                        class="hover:border-b-2 border-primary transition-all transition-duration:400 hover:text-white/70 cursor-pointer">Log
-                        out</button>
-                </form>
-
+                <x-navlink href="{{ route('user-dashboard') }}"><i class="fa-solid fa-user"></i></x-navlink>
             @endauth
 
             @guest
@@ -53,7 +46,7 @@
 
         <!-- Mobile Sidebar -->
         <div id="mobile-menu"
-            class="fixed inset-y-0 right-0 bg-black shadow-xl border-1 border-white/50 text-white w-64 transform translate-x-full transition-transform duration-300 ease-in-out z-50 overflow-y-auto">
+            class="fixed text-center inset-y-0 right-0 bg-black shadow-xl border-1 border-white/50 text-white w-64 transform translate-x-full transition-transform duration-300 ease-in-out z-50 overflow-y-auto">
             <div class="flex justify-between items-center p-4 border-b border-white/20">
                 <div class="w-20">
                     <a href="/"><img src="{{ Vite::asset('resources/images/logo.svg') }}" alt="Logo"></a>
@@ -62,15 +55,10 @@
                     <i class="fa-solid fa-xmark"></i>
                 </div>
             </div>
-            <div class="flex flex-col p-4 space-y-4 text-center">
-                <x-navlink href="/">Home</x-navlink>
-                <x-navlink href="{{ route('movies.index') }}">Movies</x-navlink>
-                <x-navlink href="{{ route('persons.index') }}">Actors & Directors</x-navlink>
-                <x-navlink href="{{ route('reviews.index') }}">Reviews</x-navlink>
-            </div>
-            <div class=" mt-4 space-x-3 space-y-2 p-4 border-t border-white/20">
+            <div class=" flex justify-center items-centermt-4 space-x-3 space-y-2 py-2  border-y border-white/20">
                 @auth
-                    <x-navlink href="{{ route('session.destroy') }}">Log out</x-navlink>
+                    <x-navlink href="{{ route('user-dashboard') }}"><i class="fa-solid fa-user">&nbsp My
+                            Dashboard</i></x-navlink>
                 @endauth
 
                 @guest
@@ -80,6 +68,25 @@
                     </div>
                 @endguest
             </div>
+            <div class="flex flex-col p-4 space-y-4 text-center border-y border-white/20">
+                <x-navlink href="/">Home</x-navlink>
+                <x-navlink href="{{ route('movies.index') }}">Movies</x-navlink>
+                <x-navlink href="{{ route('persons.index') }}">Actors & Directors</x-navlink>
+                <x-navlink href="{{ route('reviews.index') }}">Reviews</x-navlink>
+            </div>
+            <div class="flex justify-around items-center p-4  text-center border-y border-white/20">
+                <x-navlink href="#"><i class="fa-brands fa-instagram"></i></x-navlink>
+                <x-navlink href="#"><i class="fa-brands fa-facebook"></i></x-navlink>
+                <x-navlink href="#"><i class="fa-brands fa-x-twitter"></i></x-navlink>
+                <x-navlink href="#"><i class="fa-brands fa-youtube"></i></x-navlink>
+            </div>
+            <div class="  p-4  text-center border-y border-white/20">
+
+                <p class="text-sm"> 2024 &copy; All rights reserved. </p>
+                <x-navlink href="https://github.com/anelsahovic">
+                    @anelsahovic</x-navlink>
+            </div>
+
         </div>
     </nav>
 
