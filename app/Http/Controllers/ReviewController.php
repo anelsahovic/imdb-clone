@@ -2,30 +2,39 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Review;
 use Illuminate\Http\Request;
 
 class ReviewController extends Controller
 {
-    public function index(){
-        return view('reviews.index');
+    public function index()
+    {
+        $reviews = Review::simplePaginate(10);
+        return view('reviews.index', compact('reviews'));
     }
 
-    public function create(){
+    public function create()
+    {
 
     }
 
-    public function store(){
+    public function store()
+    {
     }
 
-    public function show($review){
+    public function show($review)
+    {
     }
 
-    public function edit($review){
+    public function edit($review)
+    {
     }
 
-    public function update($review){
+    public function update($review)
+    {
     }
-    
-    public function destroy($review){
+
+    public function destroy($review)
+    {
     }
 }

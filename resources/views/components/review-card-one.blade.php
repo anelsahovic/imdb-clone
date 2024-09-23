@@ -1,37 +1,39 @@
-<div class="max-w-sm mx-auto bg-white/10 shadow-lg rounded-lg overflow-hidden mb-6">
+<div class="max-w-sm w-full mx-auto bg-white/10 rounded-lg shadow-lg overflow-hidden mb-6">
     <!-- Movie Image -->
-    <div class="relative">
-        <img src="https://via.placeholder.com/300x150" alt="Movie Poster" class="w-full h-40 object-cover">
+    <div class="relative h-32">
+        <img src="{{ $review->movie->img_url }}" alt="Movie Poster" class="w-full h-full object-cover">
+        <div class="absolute flex flex-col inset-0 bg-black bg-opacity-50 items-center justify-center">
+            <h2 class="text-xl font-bold text-white text-center">{{ $review->movie->title }}</h2>
+            <p class="text-md font-semibold text-white text-center">({{ $review->movie->year_published }})</p>
+        </div>
     </div>
 
-    <!-- Movie Title and Rating -->
-    <div class="p-4">
-        <!-- Movie Title and Star Rating -->
-        <div class="flex justify-between items-center mb-2">
-            <div class="flex items-center space-x-1">
-                <h2 class="text-xl font-bold text-white">Inception</h2>
-                <p>(2024)</p>
-            </div>
-
-            <div class="flex items-center">
-                <span class="text-yellow-400 text-lg mr-1"><i class="fa-solid fa-star"></i></span> <!-- Star -->
-                <p class="text-white text-md">(9/10)</p>
-            </div>
-        </div>
-
-        <!-- Comment -->
-        <div class="mb-2">
-            <p class="text-gray-300 text-sm">Inception is a visually stunning and intellectually challenging film. The
-                concept of dreams within dreams is brilliantly executed, and the performances are top-notch. A
-                must-watch!</p>
-        </div>
-
-        <!-- User Info -->
-        <div class="flex items-center mt-4">
-            <img src="https://via.placeholder.com/40" alt="User Avatar" class="w-10 h-10 rounded-full mr-3">
+    <div class="flex flex-col p-3 justify-between">
+        <div class="flex my-3 items-center">
             <div>
-                <h3 class="text-md font-semibold text-white">John Doe</h3>
-                <p class="text-gray-400 text-sm">Reviewed: Sep 22, 2024</p>
+                <img src="https://www.citypng.com/public/uploads/preview/white-user-member-guest-icon-png-image-701751695037005zdurfaim0y.png"
+                    alt="User Avatar" class="w-11 h-11 p-1 rounded-full border-2 border-gray-600 mr-2">
+            </div>
+            <div class="flex flex-col">
+                <h3 class="text-xl font-semibold text-white">{{ $review->user->first_name }}
+                    {{ $review->user->last_name }}</h3>
+                <p class="text-md font-semibold text-white/50"><span
+                        class="font-bold">@</span>{{ $review->user->username }}</p>
+            </div>
+        </div>
+
+        <div class="my-2 w-full px-3 py-2 border-2 border-white/10 rounded-full">
+            <p class="text-gray-300 text-sm h-full overflow-hidden">{{ $review->comment }}</p>
+        </div>
+
+        <div class="flex justify-between items-center space-x-5 mb-0 mt-2">
+            <div class="flex  justify-center items-center text-yellow-400">
+                <span class="text-lg mr-1"><i class="fa-solid fa-star"></i></span>
+                <p class="text-lg">{{ $review->rating }} </p>
+                <p class="text-sm"> &nbsp/ 10</p>
+            </div>
+            <div>
+                <p class="text-gray-500 text-xs text-right">{{ $review->created_at->format('F j, Y') }}</p>
             </div>
         </div>
     </div>

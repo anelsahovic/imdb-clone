@@ -2,30 +2,39 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Person;
 use Illuminate\Http\Request;
 
 class PersonController extends Controller
 {
-    public function index(){
-        return view('persons.index');
+    public function index()
+    {
+        $persons = Person::simplePaginate(10);
+        return view('persons.index', compact('persons'));
     }
 
-    public function create(){
+    public function create()
+    {
 
     }
 
-    public function store(){
+    public function store()
+    {
     }
 
-    public function show($person){
+    public function show($person)
+    {
     }
 
-    public function edit($person){
+    public function edit($person)
+    {
     }
 
-    public function update($person){
+    public function update($person)
+    {
     }
-    
-    public function destroy($person){
+
+    public function destroy($person)
+    {
     }
 }

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TagController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\PersonController;
@@ -9,10 +10,7 @@ use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\RegisteredController;
 
-Route::get('/', function () {
-    return view('home');
-})->name('home');
-
+Route::get('/', [HomeController::class, 'index'])->name('home.index');
 //MOVIES
 Route::controller(MovieController::class)
     ->name('movies.')

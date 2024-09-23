@@ -2,7 +2,7 @@
 
     <section class="w-full flex flex-col justify-center items-center px-4">
         <div class="my-10">
-            <h1 class="text-4xl md:text-6xl lg:text-7xl text-center">Let's watch a movie</h1>
+            <h1 class="text-4xl md:text-6xl lg:text-7xl text-center">Let's find a movie</h1>
         </div>
 
         <div class="mt-2 relative w-full max-w-lg">
@@ -19,10 +19,10 @@
     <section class="my-10">
         <a href="#" class="hover:opacity-80">
             <div class="relative w-full h-96 bg-cover bg-center"
-                style="background-image: url('https://via.placeholder.com/1200x600')">
+                style="background-image: url('https://www.heavenofhorror.com/wp-content/uploads/2024/06/The-Substance-2024-body-horror.jpg')">
                 <div class="absolute inset-0 bg-black opacity-50"></div>
                 <div class="flex flex-col items-center justify-center h-full text-white text-center">
-                    <div class="text-3xl font-bold mt-2">Movie Title</div>
+                    <div class="text-3xl font-bold mt-2">The Substance</div>
                     <div class="text-lg mt-4">An epic journey awaits!</div>
                 </div>
             </div>
@@ -36,9 +36,9 @@
         </div>
         <div
             class="w-full mt-10 flex flex-col sm:flex-row justify-center items-center sm:space-x-8 space-y-8 sm:space-y-0">
-            <x-big-movie-card></x-big-movie-card>
-            <x-big-movie-card></x-big-movie-card>
-            <x-big-movie-card></x-big-movie-card>
+            @foreach ($featuredMovies as $movie)
+                <x-featured-movie-card :$movie />
+            @endforeach
         </div>
     </section>
 
@@ -48,25 +48,20 @@
             <h1 class="font-bold text-3xl">Newly Added</h1>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 px-4 mx-auto">
-            <x-small-movie-card></x-small-movie-card>
-            <x-small-movie-card></x-small-movie-card>
-            <x-small-movie-card></x-small-movie-card>
-            <x-small-movie-card></x-small-movie-card>
-            <x-small-movie-card></x-small-movie-card>
-            <x-small-movie-card></x-small-movie-card>
+            @foreach ($movies as $movie)
+                <x-small-movie-card :$movie />
+            @endforeach
         </div>
     </section>
 
 
 
     <section class="mx-auto my-20 flex flex-col items-center justify-center">
-        <h1 class="font-bold text-3xl mb-8">Actors</h1>
+        <h1 class="font-bold text-3xl mb-8">Hollywood Persons</h1>
         <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 px-4">
-            <x-person-card></x-person-card>
-            <x-person-card></x-person-card>
-            <x-person-card></x-person-card>
-            <x-person-card></x-person-card>
-            <x-person-card></x-person-card>
+            @foreach ($persons as $person)
+                <x-person-card :$person />
+            @endforeach
         </div>
     </section>
 
@@ -75,18 +70,9 @@
         class="my-20 flex flex-col justify-center items-center bg-white/10 p-6 pb-16 rounded-2xl shadow-xl border-white/20">
         <h1 class="font-bold text-3xl mb-8">Genres</h1>
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 p-5">
-            <x-genre-tag></x-genre-tag>
-            <x-genre-tag></x-genre-tag>
-            <x-genre-tag></x-genre-tag>
-            <x-genre-tag></x-genre-tag>
-            <x-genre-tag></x-genre-tag>
-            <x-genre-tag></x-genre-tag>
-            <x-genre-tag></x-genre-tag>
-            <x-genre-tag></x-genre-tag>
-            <x-genre-tag></x-genre-tag>
-            <x-genre-tag></x-genre-tag>
-            <x-genre-tag></x-genre-tag>
-            <x-genre-tag></x-genre-tag>
+            @foreach ($genres as $genre)
+                <x-genre-tag :$genre />
+            @endforeach
         </div>
     </section>
 

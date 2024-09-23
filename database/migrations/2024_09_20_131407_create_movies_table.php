@@ -8,8 +8,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
@@ -40,10 +39,10 @@ return new class extends Migration
             $table->foreignIdFor(model: Tag::class)->constrained();
         });
 
-        Schema::create('movie_actor', callback: function (Blueprint $table) {
+        Schema::create('movie_person', callback: function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(Movie::class)->constrained();
-            $table->foreignId('actor_id')->constrained('persons');
+            $table->foreignIdFor(Person::class)->constrained();
         });
     }
 
@@ -55,6 +54,6 @@ return new class extends Migration
         Schema::dropIfExists('movies');
         Schema::dropIfExists('movie_genre');
         Schema::dropIfExists('movie_tag');
-        Schema::dropIfExists('movie_actor');
+        Schema::dropIfExists('movie_person');
     }
 };
