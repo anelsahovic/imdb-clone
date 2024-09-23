@@ -9,7 +9,7 @@ class ReviewController extends Controller
 {
     public function index()
     {
-        $reviews = Review::simplePaginate(10);
+        $reviews = Review::Paginate(9);
         return view('reviews.index', compact('reviews'));
     }
 

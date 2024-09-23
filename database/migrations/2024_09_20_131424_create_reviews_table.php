@@ -6,8 +6,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
@@ -17,7 +16,7 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(User::class)->constrained()->cascadeOnDelete();
             $table->foreignIdFor(Movie::class)->constrained()->cascadeOnDelete();
-            $table->decimal('rating', 2, 1);
+            $table->decimal('rating', 3, 1);
             $table->text('comment');
             $table->timestamps();
         });

@@ -7,4 +7,7 @@
         @endforeach
     </div>
 
+    <div class="my-3">
+        {{ $persons->links() }}
+    </div>
 </x-layout>

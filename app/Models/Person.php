@@ -10,11 +10,12 @@ class Person extends Model
     use HasFactory;
 
     protected $table = "persons";
+    public $timestamps = false;
 
     public function movies()
     {
         // A person can be in many movies (actors and directors)
-        return $this->belongsToMany(Movie::class, 'movie_person', 'person_id', 'movie_id');
+        return $this->belongsToMany(Movie::class, 'movie_actor', 'actor_id', 'movie_id');
     }
 
     public function moviesAsActor()

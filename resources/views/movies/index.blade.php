@@ -7,5 +7,11 @@
             <x-small-movie-card :$movie />
         @endforeach
 
+
     </div>
+
+    <div class="my-3">
+        {{ $movies->links() }}
+    </div>
+
 </x-layout>

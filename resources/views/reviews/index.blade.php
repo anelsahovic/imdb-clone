@@ -9,4 +9,8 @@
 
     </div>
 
+    <div class="my-3">
+        {{ $reviews->links() }}
+    </div>
+
 </x-layout>

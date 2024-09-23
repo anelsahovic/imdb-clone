@@ -9,7 +9,7 @@ class PersonController extends Controller
 {
     public function index()
     {
-        $persons = Person::simplePaginate(10);
+        $persons = Person::Paginate(20);
         return view('persons.index', compact('persons'));
     }
 

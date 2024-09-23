@@ -13,7 +13,7 @@ class HomeController extends Controller
     {
         $featuredMovies = Movie::limit(3)->where('featured', true)->get();
         $movies = Movie::limit(3)->get();
-        $persons = Person::limit(3)->get();
+        $persons = Person::limit(value: 5)->get();
         $genres = Genre::all();
         return view('home', compact(['movies', 'featuredMovies', 'persons', 'genres']));
     }

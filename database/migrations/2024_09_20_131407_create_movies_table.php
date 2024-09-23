@@ -41,8 +41,8 @@ return new class extends Migration {
 
         Schema::create('movie_person', callback: function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Movie::class)->constrained();
-            $table->foreignIdFor(Person::class)->constrained();
+            $table->foreignIdFor(Movie::class)->constrained()->onDelete('cascade'); // Movie ID
+            $table->foreignIdFor(Person::class)->constrained('persons')->onDelete('cascade'); // Person ID (table name 'persons')
         });
     }
 
