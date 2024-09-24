@@ -10,6 +10,7 @@ class Genre extends Model
     use HasFactory;
 
     public $timestamps = false;
+    protected $guarded = [];
     public function movies()
     {
         return $this->belongsToMany(Movie::class, 'movie_genre');

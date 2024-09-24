@@ -9,6 +9,8 @@ class Movie extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     public function director()
     {
         return $this->belongsTo(Person::class, 'director_id');

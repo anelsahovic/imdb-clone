@@ -11,6 +11,8 @@ class Tag extends Model
 
     public $timestamps = false;
 
+    protected $guarded = [];
+
     public function movies()
     {
         return $this->belongsToMany(Movie::class, 'movie_tag');

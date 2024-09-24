@@ -11,6 +11,7 @@ class Person extends Model
 
     protected $table = "persons";
     public $timestamps = false;
+    protected $guarded = [];
 
     public function movies()
     {
@@ -28,5 +29,10 @@ class Person extends Model
     {
         // Get movies where the person is a director
         return $this->movies()->where('role', 'Director');
+    }
+
+    public function scopeActors($query)
+    {
+        return $query->where('role', 'Actor');
     }
 }

@@ -13,12 +13,17 @@
             </div>
 
             <div class="grid grid-cols-2 gap-x-6 mt-3">
-                <x-admin-db-btn href="#"><i class="fa-solid fa-users"></i> USERS</x-admin-db-btn>
-                <x-admin-db-btn href="#"><i class="fa-solid fa-video"></i> MOVIES</x-admin-db-btn>
-                <x-admin-db-btn href="#"><i class="fa-solid fa-user-ninja"></i> PERSONS</x-admin-db-btn>
-                <x-admin-db-btn href="#"><i class="fa-solid fa-comment-dots"></i> REVIEWS</x-admin-db-btn>
-                <x-admin-db-btn href="#"><i class="fa-solid fa-font-awesome"></i> GENRES</x-admin-db-btn>
-                <x-admin-db-btn href="#"><i class="fa-solid fa-hashtag"></i> TAGS</x-admin-db-btn>
+                <x-admin-db-btn href="{{ route('users.index') }}"><i class="fa-solid fa-users"></i> USERS</x-admin-db-btn>
+                <x-admin-db-btn href="{{ route('movies.index') }}"><i class="fa-solid fa-video"></i>
+                    MOVIES</x-admin-db-btn>
+                <x-admin-db-btn href="{{ route('persons.index-admin') }}"><i class="fa-solid fa-users-line"></i>
+                    PERSONS</x-admin-db-btn>
+                <x-admin-db-btn href="{{ route('reviews.index') }}"><i class="fa-solid fa-comment-dots"></i>
+                    REVIEWS</x-admin-db-btn>
+                <x-admin-db-btn href="{{ route('genres.index') }}"><i class="fa-solid fa-font-awesome"></i>
+                    GENRES</x-admin-db-btn>
+                <x-admin-db-btn href="{{ route('tags.index') }}"><i class="fa-solid fa-hashtag"></i>
+                    TAGS</x-admin-db-btn>
             </div>
 
 

@@ -1,5 +1,5 @@
 <div class="max-w-sm w-full mx-auto bg-white/10 rounded-lg shadow-lg overflow-hidden mb-6">
-    <!-- Movie Image -->
+
     <div class="relative h-32">
         <img src="{{ $review->movie->img_url }}" alt="Movie Poster" class="w-full h-full object-cover">
         <div class="absolute flex flex-col inset-0 bg-black bg-opacity-50 items-center justify-center">
