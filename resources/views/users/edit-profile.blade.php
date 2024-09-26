@@ -1,7 +1,7 @@
 <x-layout>
     <section class="flex flex-col items-center">
         <div>
-            <x-page-title><i class="fa-solid fa-user-pen"></i> EDIT USER</x-page-title>
+            <x-page-title><i class="fa-solid fa-user-pen"></i> Edit My Profile</x-page-title>
         </div>
 
         <div
@@ -11,7 +11,7 @@
                 <h2 class="text-xl font-bold ">Edit User</h2>
             </div>
 
-            <form action="{{ route('users.update', $user) }}" method="POST">
+            <form action="{{ route('users.update-profile', $user) }}" method="POST">
                 @csrf
                 @method('PATCH')
 
@@ -55,25 +55,27 @@
                             class="w-full px-3 py-2 border rounded-xl text-gray-700 bg-gray-50 border-gray-300 focus:outline-none focus:ring-4 focus:ring-primary transition duration-300"
                             required value="{{ $user->birth_date }}">
                     </div>
-
+                    <div class="mb-4">
+                        <label for="oldpassword" class="block text-white font-semibold mb-2 ml-1">Old Password</label>
+                        <input type="password" id="oldpassword" name="oldpassword" placeholder="••••••••"
+                            class="w-full px-3 py-2 border rounded-xl text-gray-700 bg-gray-50 border-gray-300 focus:outline-none focus:ring-4 focus:ring-primary transition duration-300">
+                    </div>
 
                     <div class="mb-4">
-                        <label for="password" class="block text-white font-semibold mb-2 ml-1">Password</label>
+                        <label for="password" class="block text-white font-semibold mb-2 ml-1">New Password</label>
                         <input type="password" id="password" name="password" placeholder="••••••••"
-                            class="w-full px-3 py-2 border rounded-xl text-gray-700 bg-gray-50 border-gray-300 focus:outline-none focus:ring-4 focus:ring-primary transition duration-300"
-                            value="{{ $user->password }}">
+                            class="w-full px-3 py-2 border rounded-xl text-gray-700 bg-gray-50 border-gray-300 focus:outline-none focus:ring-4 focus:ring-primary transition duration-300">
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="password_confirmation" class="block text-white font-semibold mb-2 ml-1">Confirm
+                            Password</label>
+                        <input type="password" id="password_confirmation" name="password_confirmation"
+                            placeholder="••••••••"
+                            class="w-full px-3 py-2 border rounded-xl text-gray-700 bg-gray-50 border-gray-300 focus:outline-none focus:ring-4 focus:ring-primary transition duration-300">
                     </div>
                 </div>
 
-
-                <div class="mb-4">
-                    <label for="role" class="block text-white font-semibold mb-2">Select Role</label>
-                    <select id="role" name="role"
-                        class="w-full px-3 py-2 border rounded-lg text-gray-700 bg-gray-50 border-gray-300 focus:outline-none focus:ring-4 focus:ring-primary transition duration-300">
-                        <option value="Admin" {{ $user->role === 'Admin' ? 'selected' : '' }}>Admin</option>
-                        <option value="Customer" {{ $user->role === 'Customer' ? 'selected' : '' }}>Customer</option>
-                    </select>
-                </div>
 
 
                 <div class="text-center my-2">

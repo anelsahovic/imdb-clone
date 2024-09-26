@@ -12,14 +12,17 @@
             <div class="mb-4">
                 <div class="flex justify-between items-center">
                     <h2 class="text-3xl font-bold text-white">{{ $movie->title }}</h2>
-                    <div>
-                        <form action="{{ route('movies.destroy', $movie) }}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <button class="font-bold text-xl   hover:text-red-500 "><i
-                                    class="fa-solid fa-trash-can"></i></button>
-                        </form>
-                    </div>
+                    @can('user-admin')
+                        <div>
+                            <form action="{{ route('movies.destroy', $movie) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button class="font-bold text-xl   hover:text-red-500 "><i
+                                        class="fa-solid fa-trash-can"></i></button>
+                            </form>
+                        </div>
+                    @endcan
+
                 </div>
 
 
@@ -55,9 +58,21 @@
                 <h4 class="text-white text-lg font-semibold mb-2">Starring:</h4>
                 <div class="flex flex-wrap space-x-2">
                     @foreach ($movie->actors as $actor)
-                        <span class="text-sm text-gray-400">{{ $actor->first_name }} {{ $actor->last_name }}</span>
+                        <a href="{{ route('persons.show', $actor) }}">
+                            <span class="text-sm text-gray-400 hover:border-b-2 border-primary">{{ $actor->first_name }}
+                                {{ $actor->last_name }}</span>
+                        </a>
                     @endforeach
                 </div>
+            </div>
+            <div class="mb-4">
+                <h4 class="text-white text-lg font-semibold mb-2">Directed by:</h4>
+                <a href="{{ route('persons.show', $movie->director) }}">
+                    <span
+                        class="text-sm text-gray-400 hover:border-b-2 border-primary">{{ $movie->director->first_name }}
+                        {{ $movie->director->last_name }}</span>
+                </a>
+
             </div>
 
 
@@ -79,16 +94,20 @@
                     <i class="fa-solid fa-arrow-left"></i> Back to Movies
                 </a>
 
-                <a href="{{ route('movies.edit', $movie) }}"
-                    class="px-4 py-2 bg-yellow-500 text-gray-800 rounded-lg hover:bg-yellow-400">
-                    <i class="fa-solid fa-pen"></i> Edit Movie
-                </a>
+                @can('user-admin')
+                    <a href="{{ route('movies.edit', $movie) }}"
+                        class="px-4 py-2 bg-yellow-500 text-gray-800 rounded-lg hover:bg-yellow-400">
+                        <i class="fa-solid fa-pen"></i> Edit Movie
+                    </a>
+                @endcan
 
+                @auth
+                    <a href="{{ route('reviews.create', $movie) }}"
+                        class="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-400">
+                        <i class="fa-solid fa-comment"></i> Leave a Review
+                    </a>
+                @endauth
 
-                <a href="{{ route('reviews.create', $movie) }}"
-                    class="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-400">
-                    <i class="fa-solid fa-comment"></i> Leave a Review
-                </a>
             </div>
         </div>
     </div>

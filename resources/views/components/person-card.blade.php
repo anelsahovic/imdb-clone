@@ -1,4 +1,4 @@
-<a href="#" class="hover:opacity-80">
+<a href="{{ route('persons.show', $person) }}" class="hover:opacity-80">
     <div
         class="relative mb-10 w-32 h-32 sm:w-44 sm:h-44 rounded-full overflow-hidden shadow-md bg-gray-900 flex items-center justify-center">
 

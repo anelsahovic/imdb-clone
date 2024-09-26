@@ -35,18 +35,24 @@
 
 
             <div class="flex justify-between items-center mt-6">
-                <form action="{{ route('persons.destroy', $person) }}" method="POST">
-                    @csrf
-                    @method('DELETE')
-                    <button
-                        class="flex justify-center items-center gap-x-2 font-bold h-10 px-5 py-2 rounded-lg border-2 border-white/50 hover:border-red-600 hover:text-red-600 transition-colors duration-400">
-                        <i class="fa-solid fa-trash-can"></i> Delete
-                    </button>
-                </form>
-                <a href="{{ route('persons.edit', $person) }}"
-                    class="flex justify-center items-center gap-x-2 font-bold h-10 px-5 py-2 rounded-lg bg-primary hover:bg-primary/50 transition-colors duration-400">
-                    <i class="fa-solid fa-pen"></i> Edit
-                </a>
+                @can('user-admin')
+                    <form action="{{ route('persons.destroy', $person) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button
+                            class="flex justify-center items-center gap-x-2 font-bold h-10 px-5 py-2 rounded-lg border-2 border-white/50 hover:border-red-600 hover:text-red-600 transition-colors duration-400">
+                            <i class="fa-solid fa-trash-can"></i> Delete
+                        </button>
+                    </form>
+                @endcan
+
+                @can('user-admin')
+                    <a href="{{ route('persons.edit', $person) }}"
+                        class="flex justify-center items-center gap-x-2 font-bold h-10 px-5 py-2 rounded-lg bg-primary hover:bg-primary/50 transition-colors duration-400">
+                        <i class="fa-solid fa-pen"></i> Edit
+                    </a>
+                @endcan
+
             </div>
         </div>
     </section>

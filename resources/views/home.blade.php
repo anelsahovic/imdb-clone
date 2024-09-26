@@ -17,12 +17,12 @@
 
 
     <section class="my-10">
-        <a href="#" class="hover:opacity-80">
+        <a href="{{ route('movies.index') }}" class="hover:opacity-80">
             <div class="relative w-full h-96 bg-cover bg-center"
                 style="background-image: url('https://www.heavenofhorror.com/wp-content/uploads/2024/06/The-Substance-2024-body-horror.jpg')">
                 <div class="absolute inset-0 bg-black opacity-50"></div>
                 <div class="flex flex-col items-center justify-center h-full text-white text-center">
-                    <div class="text-3xl font-bold mt-2">The Substance</div>
+                    <div class="text-3xl font-bold mt-2">Check out our movies library</div>
                     <div class="text-lg mt-4">An epic journey awaits!</div>
                 </div>
             </div>

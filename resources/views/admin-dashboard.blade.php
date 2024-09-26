@@ -2,7 +2,7 @@
 
     <section class="flex flex-col items-center">
         <div>
-            <x-page-title><i class="fa-solid fa-book"></i> ADMIN DASHBOARD</x-page-title>
+            <x-page-title><i class="fa-solid fa-table-columns"></i> ADMIN DASHBOARD</x-page-title>
         </div>
 
         <div

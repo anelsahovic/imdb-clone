@@ -99,8 +99,7 @@
 
 
             <div class="text-center">
-                <p class="text-gray-400 sm:text-gray-600">Already have an account? <a
-                        href="{{ route('session.index') }}"
+                <p class="text-gray-400 sm:text-gray-600">Already have an account? <a href="{{ route('login') }}"
                         class="text-primary font-semibold hover:border-dotted hover:border-b-2 border-primary transition-all transition-duration:400">Login
                         here</a></p>
             </div>

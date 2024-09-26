@@ -1,6 +1,6 @@
 <x-layout>
 
-    <section class="flex justify-center mt-10">
+    <section class="flex justify-center my-10">
         <div class="max-w-lg w-full bg-white/10 p-8 rounded-2xl shadow-xl text-white">
 
 
@@ -33,7 +33,6 @@
                     <span>{{ $user->created_at->format('d M Y') }}</span>
                 </div>
             </div>
-
 
             <div class="flex justify-between items-center mt-6">
                 <form action="{{ route('users.destroy', $user) }}" method="POST">

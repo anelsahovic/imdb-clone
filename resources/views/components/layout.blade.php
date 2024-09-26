@@ -30,11 +30,18 @@
         <!-- Desktop Login/Register -->
         <div class="hidden md:flex space-x-3">
             @auth
-                <x-navlink href="{{ route('user-dashboard') }}"><i class="fa-solid fa-user"></i></x-navlink>
+                @cannot('user-admin')
+                    <x-navlink href="{{ route('user-dashboard') }}"><i class="fa-solid fa-user">&nbsp My
+                            Profile</i></x-navlink>
+                @endcannot
+                @can('user-admin')
+                    <x-navlink href="{{ route('admin-dashboard') }}"><i class="fa-solid fa-table-columns"></i> ADMIN
+                        DASHBOARD</x-navlink>
+                @endcan
             @endauth
 
             @guest
-                <x-navlink href="{{ route('session.index') }}">Log in</x-navlink>
+                <x-navlink href="{{ route('login') }}">Log in</x-navlink>
                 <x-navlink href="{{ route('register.index') }}">Register</x-navlink>
             @endguest
         </div>
@@ -56,14 +63,21 @@
                 </div>
             </div>
             <div class=" flex justify-center items-centermt-4 space-x-3 space-y-2 py-2  border-y border-white/20">
+
                 @auth
-                    <x-navlink href="{{ route('user-dashboard') }}"><i class="fa-solid fa-user">&nbsp My
-                            Dashboard</i></x-navlink>
+                    @cannot('user-admin')
+                        <x-navlink href="{{ route('user-dashboard') }}"><i class="fa-solid fa-user">&nbsp My
+                                Profile </i></x-navlink>
+                    @endcannot
+                    @can('user-admin')
+                        <x-navlink href="{{ route('admin-dashboard') }}"><i class="fa-solid fa-user">&nbsp Admin
+                                Dashboard</i></x-navlink>
+                    @endcan
                 @endauth
 
                 @guest
                     <div class="flex justify-center items-center space-x-3">
-                        <x-navlink href="{{ route('session.index') }}">Log in</x-navlink>
+                        <x-navlink href="{{ route('login') }}">Log in</x-navlink>
                         <x-navlink href="{{ route('register.index') }}">Register</x-navlink>
                     </div>
                 @endguest
