@@ -77,5 +77,17 @@ class DatabaseSeeder extends Seeder
             ],
         ]);
 
+        User::insert([
+            'first_name' => 'Peter',
+            'last_name' => 'Hampton',
+            'username' => 'peter',
+            'email' => 'peterhampton@mail.com',
+            'birth_date' => '1986-02-05',
+            'password' => bcrypt('12345678'),
+            'role' => 'Admin'
+        ]);
+
+
+
     }
 }

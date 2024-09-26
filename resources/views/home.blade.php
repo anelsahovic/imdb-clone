@@ -5,14 +5,21 @@
             <h1 class="text-4xl md:text-6xl lg:text-7xl text-center">Let's find a movie</h1>
         </div>
 
-        <div class="mt-2 relative w-full max-w-lg">
-            <input type="text"
-                class="bg-white/20 rounded-full p-3 pr-10 w-full focus:outline-none focus:ring-2 focus:ring-primary transition-all"
-                placeholder="The Wolf of Wall Street...">
-            <div class="absolute inset-y-0 right-0 flex items-center pr-3">
-                <i class="fa-solid fa-magnifying-glass text-gray-500"></i>
+        <form action="{{ route('movies.index') }}" method="GET">
+            @csrf
+            <div class="mt-2 relative w-full">
+                <input type="text" name="search" value="{{ request('search') }}"
+                    class="bg-white/20 rounded-full p-3 pr-10 w-full sm:w-[300px] md:w-[400px] lg:w-[500px] focus:outline-none focus:ring-2 focus:ring-primary transition-all"
+                    placeholder="The Wolf of Wall Street...">
+                <div class="absolute inset-y-0 right-0 flex items-center pr-3">
+                    <i class="fa-solid fa-magnifying-glass text-gray-500"></i>
+                </div>
             </div>
-        </div>
+
+            <button hidden>Search</button>
+        </form>
+
+
     </section>
 
 
