@@ -108,6 +108,33 @@
                     </a>
                 @endauth
 
+                @auth
+                    @php
+
+                        $isFavorite = auth()
+                            ->user()
+                            ->favorites->contains($movie->id);
+                    @endphp
+
+                    @if ($isFavorite)
+                        <form action="{{ route('movies.destroy-favorite', $movie) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button class="px-4 py-2 bg-red-700 text-white rounded-lg hover:bg-red-400">
+                                <i class="fa-solid fa-heart-circle-minus"></i> Remove
+                            </button>
+                        </form>
+                    @else
+                        <form action="{{ route('movies.store-favorite', $movie) }}" method="POST">
+                            @csrf
+                            <button class="px-4 py-2 bg-pink-700 text-white rounded-lg hover:bg-pink-400">
+                                <i class="fa-solid fa-heart-circle-plus"></i> Favorite
+                            </button>
+                        </form>
+                    @endif
+                @endauth
+
+
             </div>
         </div>
     </div>

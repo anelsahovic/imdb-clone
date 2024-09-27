@@ -41,12 +41,16 @@ Route::controller(MovieController::class)
     ->name('movies.')
     ->group(function () {
         Route::get('/movies', 'index')->name('index');
+        Route::get('/movies/favorites', 'getFavorites')->name('favorites')->middleware('auth');
         Route::get('/movies/create', 'create')->name('create')->middleware('auth')->can('user-admin');
         Route::post('/movies/store', 'store')->name('store')->middleware('auth')->can('user-admin');
         Route::get('/movies/{movie}', 'show')->name('show');
         Route::get('/movies/{movie}/edit', 'edit')->name('edit')->middleware('auth')->can('user-admin');
         Route::patch('/movies/{movie}', 'update')->name('update')->middleware('auth')->can('user-admin');
         Route::delete('/movies/{movie}', 'destroy')->name('destroy')->middleware('auth')->can('user-admin');
+
+        Route::delete('/movies/{movie}', 'destroyFavorite')->name('destroy-favorite')->middleware('auth');
+        Route::post('/movies/{movie}', 'storeFavorite')->name('store-favorite')->middleware('auth');
     });
 
 //PERSONS

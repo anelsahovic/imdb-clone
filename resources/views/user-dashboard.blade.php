@@ -21,6 +21,11 @@
                 <span>@</span>{{ Auth::user()->username }}
             </p>
 
+            <a href="{{ route('movies.favorites') }}"
+                class="px-4 py-2 mb-6 text-white  border border-primary rounded-lg hover:bg-primary/70 transition duration-300">
+                Favorite movies
+            </a>
+
             <a href="{{ route('reviews.index-user') }}"
                 class="px-4 py-2 mb-6 text-white  border border-primary rounded-lg hover:bg-primary/70 transition duration-300">
                 My Reviews

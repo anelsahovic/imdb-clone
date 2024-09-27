@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Tag;
+use App\Models\User;
 use App\Models\Genre;
 use App\Models\Movie;
 use App\Models\Person;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class MovieController extends Controller
 {
@@ -31,6 +33,32 @@ class MovieController extends Controller
             })
             ->paginate(10);
         return view('movies.index', compact('movies', 'genres'));
+    }
+
+    public function getFavorites()
+    {
+        $movies = Auth::user()->favorites()->latest()->paginate(perPage: 9);
+        //dd($movies);
+        return view('movies.favorites', compact('movies'));
+    }
+
+    public function storeFavorite(Movie $movie)
+    {
+
+        $alreadyFavorited = Auth::user()->favorites()->where('movie_id', $movie->id)->exists();
+        if (!$alreadyFavorited) {
+
+            Auth::user()->favorites()->attach($movie);
+        }
+
+        return redirect()->route('movies.show', $movie);
+    }
+
+    public function destroyFavorite(Movie $movie)
+    {
+        Auth::user()->favorites()->detach($movie);
+
+        return redirect()->route('movies.show', $movie);
     }
 
     public function create()
