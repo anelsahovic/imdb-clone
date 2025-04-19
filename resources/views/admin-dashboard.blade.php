@@ -14,7 +14,7 @@
 
             <div class="grid grid-cols-2 gap-x-6 mt-3">
                 <x-admin-db-btn href="{{ route('users.index') }}"><i class="fa-solid fa-users"></i> USERS</x-admin-db-btn>
-                <x-admin-db-btn href="{{ route('movies.index') }}"><i class="fa-solid fa-video"></i>
+                <x-admin-db-btn href="{{ route('movies.create') }}"><i class="fa-solid fa-video"></i>
                     MOVIES</x-admin-db-btn>
                 <x-admin-db-btn href="{{ route('persons.index-admin') }}"><i class="fa-solid fa-users-line"></i>
                     PERSONS</x-admin-db-btn>

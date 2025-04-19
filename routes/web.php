@@ -32,7 +32,7 @@ Route::controller(UserController::class)
             ->name('update-profile')
             ->middleware('auth')
             ->can('updateProfile', 'user'); // Update user profile specifically
-    
+
         Route::delete('/users/{user}', 'destroy')->name('destroy');
     });
 
@@ -49,7 +49,7 @@ Route::controller(MovieController::class)
         Route::patch('/movies/{movie}', 'update')->name('update')->middleware('auth')->can('user-admin');
         Route::delete('/movies/{movie}', 'destroy')->name('destroy')->middleware('auth')->can('user-admin');
 
-        Route::delete('/movies/{movie}', 'destroyFavorite')->name('destroy-favorite')->middleware('auth');
+        Route::delete('/movies/{movie}/favorite', 'destroyFavorite')->name('destroy-favorite')->middleware('auth');
         Route::post('/movies/{movie}', 'storeFavorite')->name('store-favorite')->middleware('auth');
     });
 
@@ -82,7 +82,7 @@ Route::controller(ReviewController::class)
         Route::delete('/reviews/{review}', 'destroy')->name('destroy')->middleware('auth');
     });
 
-//GENRES 
+//GENRES
 Route::controller(GenreController::class)
     ->name('genres.')
     ->group(function () {
